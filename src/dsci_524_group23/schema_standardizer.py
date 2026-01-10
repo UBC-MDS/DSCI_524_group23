@@ -18,7 +18,7 @@ class SchemaStandardizer:
             If True, methods will print a summary of structural changes made
             (e.g., "Dropped 3 constant columns").
         """
-        self.verbose = verbose
+        pass
 
     def standardize_headers(self, data):
         """
