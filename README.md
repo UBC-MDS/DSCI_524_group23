@@ -34,7 +34,14 @@ To use dsci_524_group23 in your code:
 
 These are the functions in this package:
 
-- rename_feature_headers()
+- standardize_headers()
+Standardize DataFrame column headers to a clean snake_case format.
+
+- drop_duplicate_columns()
+Remove columns with duplicate header names.
+
+- drop_constant_columns()
+Remove columns that contain a single unique value across all rows.
 
 - find_duplicates()
 Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
