@@ -43,10 +43,9 @@ Remove columns with duplicate header names.
 - drop_constant_columns()
 Remove columns that contain a single unique value across all rows.
 
-- find_duplicates()
-Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
+- find_duplicates() Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
 
-- handle_missing()
+- handle_missing() Handles missing data in input Pandas dataframe so as to speed up the data science pipeline.
 
 ## Position of this package in the Python Ecosystem
 
