@@ -1,6 +1,6 @@
 import pandas as pd
 
-def handel_missing(df, strategy='mean'):
+def handel_missing(df, strategy='drop'):
     """
     Handles missing data in a pandas DataFrame.
 
@@ -12,7 +12,7 @@ def handel_missing(df, strategy='mean'):
     df : pandas.DataFrame
         Input DataFrame
 
-    strategy : str, default 'mean'
+    strategy : str, default 'drop'
         The strategy to use for handling missing values.
 
     Returns
