@@ -80,6 +80,8 @@ def find_duplicates(data, subset=None, keep="first"):
         raise ValueError("keep must be one of {'first', 'last', False}")
 
     duplicated_mask = data.duplicated(subset=subset, keep=keep)
-    duplicates_df = data[duplicated_mask].copy()
+    duplicates_df = (
+        data[duplicated_mask].copy().reset_index(drop=True)
+    )  # fixed with ChatGPT (test was failing)
 
     return duplicates_df
