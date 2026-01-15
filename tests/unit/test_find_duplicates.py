@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import pytest
 
 from dsci_524_group23.find_duplicates import find_duplicates
@@ -87,5 +88,14 @@ def test_nan_duplicates():
 
     out = find_duplicates(df, keep=False)
     expected = df
+
+    pd.testing.assert_frame_equal(out, expected)
+
+
+def test_subset_valid():
+    df = pd.DataFrame({"A": [1, 1, 2], "B": [1, 2, 2]})
+
+    out = find_duplicates(df, subset=["A"])
+    expected = pd.DataFrame({"A": [1], "B": [2]})
 
     pd.testing.assert_frame_equal(out, expected)
