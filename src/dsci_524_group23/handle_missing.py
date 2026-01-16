@@ -33,14 +33,14 @@ def handle_missing(df, strategy='drop', columns=None):
         If `strategy` is not a permitted strategy.
     """
 
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError('df must be a pandas DataFrame.')
+
     if not isinstance(strategy, str):
         raise TypeError('Strategy must be a string.')
 
     if strategy not in ['mean', 'median', 'max', 'min', 'mode', 'drop']:
         raise ValueError('Strategy must be permitted.')
-
-    if not isinstance(df, pd.DataFrame):
-        raise TypeError('df must be a pandas DataFrame.')
 
     if columns is None:
         columns = df.columns.tolist()
