@@ -58,14 +58,11 @@ def handle_missing(df, strategy='drop', columns=None):
             raise ValueError(f'Column {col} only contains NaN.')
 
         if strategy == 'drop':
-            df = df.dropna(subset=[col], inplace=True)
+            df = df.dropna(subset=[col])
             continue
 
         if df[col].isna().sum() == 0:
             continue
-
-        if df[col].dtype not in ['object', 'category', 'bool', 'int', 'float', 'str']:
-            raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
 
         if df[col].dtype in ['int', 'float']:
             if strategy == 'mean':
@@ -83,11 +80,19 @@ def handle_missing(df, strategy='drop', columns=None):
             elif strategy == 'mode':
                 df[col] = df[col].fillna(df[col].mode())
 
+            else:
+                raise TypeError(f'Strategy {strategy} cannot be used for dtype of column {col}.')
+
         elif df[col].dtype in ['object', 'category', 'bool']:
             if strategy == 'mode':
                 if df[col].mode().shape[0] == 1:
                     df[col] = df[col].fillna(df[col].mode())
                 else:
                     df[col] = df[col].fillna(df[col].mode().iloc[0])
+            else:
+                raise TypeError(f'Strategy {strategy} cannot be used for dtype of column {col}.')
+
+        else:
+            raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
 
     return df
