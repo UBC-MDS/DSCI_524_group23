@@ -46,7 +46,7 @@ def handle_missing(df, strategy='drop', columns=None):
         raise TypeError('columns must be a list.')
 
     if columns is None:
-        columns = [None]
+        columns = df.columns.tolist()
 
     for col in columns:
         if col not in df.columns:
@@ -59,7 +59,7 @@ def handle_missing(df, strategy='drop', columns=None):
             raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
 
         if strategy == 'drop':
-            df[col] = df[col].dropna()
+            df = df.dropna(subset=[col], inplace=True)
 
         if df[col].dtype in ['int', 'float']:
             if strategy == 'mean':
