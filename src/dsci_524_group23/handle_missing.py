@@ -42,28 +42,30 @@ def handle_missing(df, strategy='drop', columns=None):
     if not isinstance(df, pd.DataFrame):
         raise TypeError('df must be a pandas DataFrame.')
 
-    if not isinstance(columns, list) and columns is not None:
-        raise TypeError('columns must be a list.')
-
     if columns is None:
         columns = df.columns.tolist()
+
+    if not isinstance(columns, list):
+        raise TypeError('columns must be a list.')
+
+    df = df.copy()
 
     for col in columns:
         if col not in df.columns:
             raise ValueError(f'Column {col} not in dataframe.')
 
-        if df[col].isna().sum() == df[col].shape[0]:
+        if df[col].isna().all():
             raise ValueError(f'Column {col} only contains NaN.')
-
-        if df[col].dtype not in ['object', 'category', 'bool', 'int', 'float', 'str']:
-            raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
-
-        if df[col].isna().sum() == 0:
-            continue
 
         if strategy == 'drop':
             df = df.dropna(subset=[col], inplace=True)
             continue
+
+        if df[col].isna().sum() == 0:
+            continue
+
+        if df[col].dtype not in ['object', 'category', 'bool', 'int', 'float', 'str']:
+            raise TypeError(f'The dtype of column {col} cannot be used. \nColumn {col} has dtype {df[col].dtype}.')
 
         if df[col].dtype in ['int', 'float']:
             if strategy == 'mean':
@@ -84,3 +86,5 @@ def handle_missing(df, strategy='drop', columns=None):
         if df[col].dtype in ['object', 'category', 'bool']:
             if strategy == 'mode':
                 df[col] = df[col].fillna(df[col].mode())
+
+    return df
