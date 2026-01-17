@@ -12,3 +12,11 @@ def test_standardize_schema_empty_df():
     expected_out = pd.DataFrame()
     
     pd.testing.assert_frame_equal(out, expected_out)
+
+def test_standardize_schema_non_string_headers():
+    df_int_headers = pd.DataFrame({0: [1, 2], 1: [3, 4]})
+    out = standardize_schema(df_int_headers)
+    
+    expected_out = pd.DataFrame({'0': [1, 2], '1': [3, 4]})  
+    pd.testing.assert_frame_equal(out, expected_out)
+    
