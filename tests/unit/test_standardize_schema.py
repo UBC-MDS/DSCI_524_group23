@@ -57,8 +57,17 @@ def test_standardize_schema_all_constant_columns():
 
 def test_standardize_schema_constant_with_nan():
     """Test that columns containing only NaN values are treated as constant and removed."""
-    
+
     df = pd.DataFrame({'A': [1, 2],  'B': [np.nan, np.nan]})
     out = standardize_schema(df)
     expected_out = pd.DataFrame({'a': [1, 2]})
     pd.testing.assert_frame_equal(out, expected_out)
+
+def test_standardize_schema_empty_result_header():
+    """Test that headers becoming empty strings (e.g., '$$$') get renamed safely."""
+    df = pd.DataFrame({'$$$': [1, 2], '...': [3, 4], 'Valid': [5, 6]})
+    out = standardize_schema(df)
+    
+    expected_out = pd.DataFrame({'untitled_0': [1, 2], 'untitled_1': [3, 4], 'valid': [5, 6]})
+    pd.testing.assert_frame_equal(out, expected_out)
+    
