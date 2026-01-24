@@ -33,7 +33,9 @@ classifiers = [
 # TODO: add keywords
 keywords = []
 # TODO: add dependencies
-dependencies = []
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy"]
 
 [project.urls]
 Homepage = "https://github.com/Nish-kumar/dsci_524_group23"

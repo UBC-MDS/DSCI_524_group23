@@ -1,0 +1,43 @@
+# missing_summary { #dsci_524_group23.missing_summary }
+
+`missing_summary`
+
+
+
+## Functions
+
+| Name | Description |
+| --- | --- |
+| [missing_summary](#dsci_524_group23.missing_summary.missing_summary) | Generate a summary of missing values in a dataset. |
+
+### missing_summary { #dsci_524_group23.missing_summary.missing_summary }
+
+```python
+missing_summary.missing_summary(data)
+```
+
+Generate a summary of missing values in a dataset.
+
+This function specifies an interface for computing the number and
+proportion of missing values for each column in the input dataset.
+It is intended to help users assess data completeness prior to
+further cleaning steps.
+
+#### Parameters {.doc-section .doc-section-parameters}
+
+| Name   | Type             | Description                   | Default    |
+|--------|------------------|-------------------------------|------------|
+| data   | pandas.DataFrame | Input dataset to be analyzed. | _required_ |
+
+#### Returns {.doc-section .doc-section-returns}
+
+| Name   | Type             | Description                                                                            |
+|--------|------------------|----------------------------------------------------------------------------------------|
+|        | pandas.DataFrame | A summary table containing the count and percentage of missing values for each column. |
+
+#### Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                  |
+|--------|------------|----------------------------------------------|
+|        | ValueError | If the input data is None or empty.          |
+|        | TypeError  | If the input data is not a pandas DataFrame. |
