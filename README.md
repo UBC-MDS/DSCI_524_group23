@@ -13,7 +13,7 @@ This package provides a lightweight and user friendly toolkit for common data cl
 
 ## Installation
 
-You can install this package into your preferred Python environment using pip:
+Install for regular use:
 
 ```bash
 pip install ez-df-data-validator
@@ -41,19 +41,6 @@ print(summary)
 ```
 
 
-### For development
-
-```bash
-git clone https://github.com/UBC-MDS/ez-df-data-validator.git
-cd ez-df-data-validator
-pip install -e .
-pip install -e .[tests,dev]
-```
-
-**Requirements**
-- Python 3.9+
-
-
 ## Functions
 
 The package provides the following core data validation and cleaning utilities:
@@ -68,25 +55,27 @@ The package provides the following core data validation and cleaning utilities:
 | `missing_summary()` | Summarizes missing values per column (count and proportion) to help assess data completeness. |
 
 
-## Development Setup
+## Developer Guide
+
+Follow these steps to set up the development environment and contribute to the project.
+
+We use **conda** to manage dependencies.
 
 ```bash
+# Create and activate environment
 conda env create -f environment.yml
 conda activate ez_df_data_validator
-pip install -e .[tests,dev]
-```
 
+# Install package with development + testing + docs tools
+pip install -e ".[tests,dev,docs]"
 
-## Running Tests
-
-```bash
+# Run tests
 pytest
-```
-
-With coverage:
-
-```bash
 pytest --cov=ez_df_data_validator --cov-report=term-missing --cov-branch
+
+# Build documentation locally
+quartodoc build
+quarto preview
 ```
 
 
