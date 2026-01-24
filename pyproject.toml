@@ -39,7 +39,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/UBC-MDS/ez-df-data-validator"
-"Source Code" = "https://github.com/Nish-kumar/ez_df_data_validator"
+"Source Code" = "https://github.com/UBC-MDS/ez-df-data-validator"
 "Bug Tracker" = "https://github.com/UBC-MDS/ez-df-data-validator/issues"
 Documentation = "https://github.com/UBC-MDS/ez-df-data-validator/blob/main/README.md"
 Download = "https://pypi.org/project/ez_df_data_validator/#files"
