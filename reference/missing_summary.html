@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>missing_summary – dsci_524_group23</title>
+<title>missing_summary – ez_df_data_validator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">dsci_524_group23</span>
+    <span class="navbar-title">ez_df_data_validator</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -146,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="dsci_524_group23.missing_summary" class="level1">
+<section id="ez_df_data_validator.missing_summary" class="level1">
 <h1>missing_summary</h1>
 <p><code>missing_summary</code></p>
 <section id="functions" class="level2">
@@ -160,13 +160,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="#dsci_524_group23.missing_summary.missing_summary">missing_summary</a></td>
+<td><a href="#ez_df_data_validator.missing_summary.missing_summary">missing_summary</a></td>
 <td>Generate a summary of missing values in a dataset.</td>
 </tr>
 </tbody>
 </table>
-<section id="dsci_524_group23.missing_summary.missing_summary" class="level3">
-<h3 class="anchored" data-anchor-id="dsci_524_group23.missing_summary.missing_summary">missing_summary</h3>
+<section id="ez_df_data_validator.missing_summary.missing_summary" class="level3">
+<h3 class="anchored" data-anchor-id="ez_df_data_validator.missing_summary.missing_summary">missing_summary</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>missing_summary.missing_summary(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Generate a summary of missing values in a dataset.</p>
 <p>This function computes, for each column in a pandas DataFrame, the total number of missing values and the proportion of missing values relative to the number of rows.</p>
@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="examples" class="level4 doc-section doc-section-examples">
 <h4 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> dsci_524_group23.missing_summary <span class="im">import</span> missing_summary</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> ez_df_data_validator.missing_summary <span class="im">import</span> missing_summary</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df <span class="op">=</span> pd.DataFrame({<span class="st">"a"</span>: [<span class="dv">1</span>, <span class="va">None</span>, <span class="dv">3</span>], <span class="st">"b"</span>: [<span class="va">None</span>, <span class="va">None</span>, <span class="st">"x"</span>]})</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> missing_summary(df)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        missing_count  missing_pct</span>
