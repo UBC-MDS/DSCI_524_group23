@@ -38,11 +38,11 @@ dependencies = [
     "numpy"]
 
 [project.urls]
-Homepage = "https://github.com/Nish-kumar/dsci_524_group23"
-"Source Code" = "https://github.com/Nish-kumar/dsci_524_group23"
-"Bug Tracker" = "https://github.com/Nish-kumar/dsci_524_group23/issues"
-Documentation = "https://github.com/Nish-kumar/dsci_524_group23/blob/main/README.md"
-Download = "https://pypi.org/project/dsci_524_group23/#files"
+Homepage = "https://github.com/UBC-MDS/ez-df-data-validator"
+"Source Code" = "https://github.com/UBC-MDS/ez-df-data-validator"
+"Bug Tracker" = "https://github.com/UBC-MDS/ez-df-data-validator/issues"
+Documentation = "https://github.com/UBC-MDS/ez-df-data-validator/blob/main/README.md"
+Download = "https://pypi.org/project/ez_df_data_validator/#files"
 
 [project.optional-dependencies]
 # The groups below should be in the [development-groups] table
