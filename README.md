@@ -26,21 +26,33 @@ pip install ez-df-data-validator
 
 ```python
 import pandas as pd
-from ez_df_data_validator import standardize_headers, missing_summary
+import numpy as np
+from ez_df_data_validator import (
+    standardize_headers, 
+    missing_summary, 
+    handle_missing,
+    find_duplicates
+)
 
-# Example dataset
+# Create a messy dataset
 df = pd.DataFrame({
-    "Age ": [25, None, 30],
-    "Income($)": [50000, 60000, None]
+    "Age ": [25, 25, 30, np.nan],
+    "Income($)": [50000, 50000, 60000, 60000],
+    "City": ["Van", "Van", "Tor", "Tor"]
 })
 
-# Clean column names
+# Clean headers
 df = standardize_headers(df)
 
-# Summarize missing values
-summary = missing_summary(df)
+# Check for duplicates
+duplicates = find_duplicates(df)
+print(f"Found {len(duplicates)} duplicate rows")
 
-print(summary)
+# Summarize missing values
+print(missing_summary(df))
+
+# Handle missing values
+df_clean = handle_missing(df, strategy="drop")
 ```
 
 
@@ -99,8 +111,8 @@ Workflows run on pushes and pull requests to `main`.
 
 Project documentation is automatically generated using **quartodoc** and deployed with **GitHub Pages** as part of the CI/CD workflow.
 
-You can view the full API documentation here:  
-https://ubc-mds.github.io/ez-df-data-validator/reference/
+- [**Project Homepage**](https://ubc-mds.github.io/ez-df-data-validator/)
+- [**API Reference**](https://ubc-mds.github.io/ez-df-data-validator/reference/)
 
 
 ## Position of this package in the Python Ecosystem
