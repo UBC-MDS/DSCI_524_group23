@@ -16,7 +16,7 @@ This package provides a lightweight and user friendly toolkit for common data cl
 Install for regular use:
 
 ```bash
-pip install ez-df-data-validator
+pip install -i https://test.pypi.org/simple/ ez-df-data-validator
 ```
 
 ### Requirements
@@ -28,7 +28,7 @@ pip install ez-df-data-validator
 import pandas as pd
 import numpy as np
 from ez_df_data_validator import (
-    standardize_headers, 
+    standardize_schema, 
     missing_summary, 
     handle_missing,
     find_duplicates
@@ -42,7 +42,7 @@ df = pd.DataFrame({
 })
 
 # Clean headers
-df = standardize_headers(df)
+df = standardize_schema(df)
 
 # Check for duplicates
 duplicates = find_duplicates(df)
