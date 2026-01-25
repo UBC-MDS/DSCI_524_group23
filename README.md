@@ -62,9 +62,7 @@ The package provides the following core data validation and cleaning utilities:
 
 | Function | Description |
 |----------|-------------|
-| `standardize_headers()` | Standardize DataFrame column headers to a clean snake_case format. |
-| `drop_duplicate_columns()` | Remove columns with duplicate header names. |
-| `drop_constant_columns()` | Remove columns that contain a single unique value across all rows. |
+| `schema_standardizer()` | Standardize DataFrame column headers, remove duplicate columns and drop constant columns. |
 | `find_duplicates()` | Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data. |
 | `handle_missing()` | Handles missing data in input Pandas dataframe so as to speed up the data science pipeline. |
 | `missing_summary()` | Summarizes missing values per column (count and proportion) to help assess data completeness. |
@@ -113,7 +111,7 @@ Project documentation is automatically generated using **quartodoc** and deploye
 
 - [**Project Homepage**](https://ubc-mds.github.io/ez-df-data-validator/)
 - [**API Reference**](https://ubc-mds.github.io/ez-df-data-validator/reference/)
-
+- [** TestPYPI Package**](https://test.pypi.org/project/ez-df-data-validator/)
 
 ## Position of this package in the Python Ecosystem
 
