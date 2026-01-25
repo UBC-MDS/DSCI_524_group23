@@ -1,50 +1,118 @@
-# Welcome to DSCI_524_group23
+# ez-df-data-validator
 
 |        |        |
 |--------|--------|
-| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/dsci_524_group23.svg)](https://pypi.org/project/dsci_524_group23/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/dsci_524_group23.svg)](https://pypi.org/project/dsci_524_group23/)  |
+| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/ez-df-data-validator.svg)](https://pypi.org/project/ez-df-data-validator/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/ez-df-data-validator.svg)](https://pypi.org/project/ez-df-data-validator/)  |
 | Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
 
-*TODO: the above badges that indicate python version and package version will only work if your package is on PyPI.
-If you don't plan to publish to PyPI, you can remove them.*
 
 ## Summary
 
-DSCI_524_group23 is a project that provides basic, but essential data cleaning functionality for ML workflows. 
+ez-df-data-validator is a project that provides basic, but essential data cleaning functionality for ML workflows.
 This package provides a lightweight and user friendly toolkit for common data cleaning tasks in Python. It is designed to streamline data preprocessing by offering clear, reusable functions for detecting duplicates, standardizing column names, and handling missing values. The goal is to reduce repetitive code and make data preparation more efficient and reproducible.
 
-## Get started
+## Installation
 
-You can install this package into your preferred Python environment using pip:
+Install for regular use:
 
 ```bash
-$ pip install dsci_524_group23
+pip install ez-df-data-validator
 ```
 
-TODO: Add a brief example of how to use the package to this section
+### Requirements
+- Python 3.10+
 
-To use dsci_524_group23 in your code:
+### Example usage
 
 ```python
->>> import dsci_524_group23
->>> dsci_524_group23.hello_world()
+import pandas as pd
+import numpy as np
+from ez_df_data_validator import (
+    standardize_headers, 
+    missing_summary, 
+    handle_missing,
+    find_duplicates
+)
+
+# Create a messy dataset
+df = pd.DataFrame({
+    "Age ": [25, 25, 30, np.nan],
+    "Income($)": [50000, 50000, 60000, 60000],
+    "City": ["Van", "Van", "Tor", "Tor"]
+})
+
+# Clean headers
+df = standardize_headers(df)
+
+# Check for duplicates
+duplicates = find_duplicates(df)
+print(f"Found {len(duplicates)} duplicate rows")
+
+# Summarize missing values
+print(missing_summary(df))
+
+# Handle missing values
+df_clean = handle_missing(df, strategy="drop")
 ```
+
 
 ## Functions
 
-These are the functions in this package:
+The package provides the following core data validation and cleaning utilities:
 
-- `standardize_schema()`
-    > Standardize DataFrame column headers to a clean snake_case format.
+| Function | Description |
+|----------|-------------|
+| `standardize_headers()` | Standardize DataFrame column headers to a clean snake_case format. |
+| `drop_duplicate_columns()` | Remove columns with duplicate header names. |
+| `drop_constant_columns()` | Remove columns that contain a single unique value across all rows. |
+| `find_duplicates()` | Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data. |
+| `handle_missing()` | Handles missing data in input Pandas dataframe so as to speed up the data science pipeline. |
+| `missing_summary()` | Summarizes missing values per column (count and proportion) to help assess data completeness. |
 
-- `find_duplicates()` 
-    > Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data.
 
-- `handle_missing()` 
-    > Handles missing data in input Pandas dataframe so as to speed up the data science pipeline.
+## Developer Guide
 
-- `missing_summary()` 
-    > Summarizes missing values per column (count and proportion) to help assess data completeness.
+Follow these steps to set up the development environment and contribute to the project.
+
+We use **conda** to manage dependencies.
+
+```bash
+# Create and activate environment
+conda env create -f environment.yml
+conda activate ez_df_data_validator
+
+# Install package with development + testing + docs tools
+pip install -e ".[tests,dev,docs]"
+
+# Run tests
+pytest
+pytest --cov=ez_df_data_validator --cov-report=term-missing --cov-branch
+
+# Build documentation locally
+quartodoc build
+quarto preview
+```
+
+
+## Continuous Integration
+
+This project uses GitHub Actions for automated testing and code quality checks.  
+CI workflow includes:
+
+- Python 3.12 environment  
+- Editable package installation with dev/test dependencies  
+- Pytest with coverage reporting  
+- Ruff linting  
+
+Workflows run on pushes and pull requests to `main`.
+
+
+## Documentation
+
+Project documentation is automatically generated using **quartodoc** and deployed with **GitHub Pages** as part of the CI/CD workflow.
+
+- [**Project Homepage**](https://ubc-mds.github.io/ez-df-data-validator/)
+- [**API Reference**](https://ubc-mds.github.io/ez-df-data-validator/reference/)
 
 
 ## Position of this package in the Python Ecosystem
