@@ -2,7 +2,7 @@
 
 |        |        |
 |--------|--------|
-| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/ez-df-data-validator.svg)](https://pypi.org/project/ez-df-data-validator/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/ez-df-data-validator.svg)](https://pypi.org/project/ez-df-data-validator/)  |
+| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/ez-df-data-validator.svg)](https://test.pypi.org/project/ez-df-data-validator/) |
 | Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
 
 
@@ -62,7 +62,7 @@ The package provides the following core data validation and cleaning utilities:
 
 | Function | Description |
 |----------|-------------|
-| `schema_standardizer()` | Standardize DataFrame column headers, remove duplicate columns and drop constant columns. |
+| `standardize_schema()` | Standardize DataFrame column headers, remove duplicate columns and drop constant columns. |
 | `find_duplicates()` | Identifies duplicate rows in a dataset based on one or more specified columns, helping users quickly detect and inspect redundant data. |
 | `handle_missing()` | Handles missing data in input Pandas dataframe so as to speed up the data science pipeline. |
 | `missing_summary()` | Summarizes missing values per column (count and proportion) to help assess data completeness. |
@@ -111,7 +111,7 @@ Project documentation is automatically generated using **quartodoc** and deploye
 
 - [**Project Homepage**](https://ubc-mds.github.io/ez-df-data-validator/)
 - [**API Reference**](https://ubc-mds.github.io/ez-df-data-validator/reference/)
-- [** TestPYPI Package**](https://test.pypi.org/project/ez-df-data-validator/)
+- [**TestPYPI Package**](https://test.pypi.org/project/ez-df-data-validator/)
 
 ## Position of this package in the Python Ecosystem
 

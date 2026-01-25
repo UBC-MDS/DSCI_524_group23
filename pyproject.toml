@@ -13,7 +13,7 @@ requires = ["hatchling"]
 [project]
 name = "ez_df_data_validator"
 # You can chose to use dynamic versioning with hatch or static where you add it manually.
-version = "0.1.0"
+version = "0.1.1"
 
 description = "Group 23 Project(MDS 524) -  Data Cleaner"
 authors = [
