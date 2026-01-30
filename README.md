@@ -60,7 +60,7 @@ df_clean = handle_missing(df, strategy="drop")
 
 Run the script with `python test_package.py`. It should show an output similar to:
 
-```
+```bash
 $ python test_package.py
 Found 1 duplicate rows
         missing_count  missing_pct
