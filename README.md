@@ -2,8 +2,7 @@
 
 |        |        |
 |--------|--------|
-| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/ez-df-data-validator.svg)](https://test.pypi.org/project/ez-df-data-validator/) |
-| Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
+| Package | [![Latest PyPI Version](https://img.shields.io/badge/TestPyPI-v0.1.2-blue)](https://test.pypi.org/project/ez-df-data-validator/) |
 
 
 ## Summary
