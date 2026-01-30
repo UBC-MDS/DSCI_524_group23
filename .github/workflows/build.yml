@@ -7,8 +7,11 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  test:
+  test-and-build-docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,16 +24,26 @@ jobs:
           python-version: "3.12"
           cache: "pip"
 
-      - name: Install package + test tools
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e ".[tests, dev]"
+          python -m pip install -e ".[tests,dev,docs]"
+
+      - name: Run style checks
+        continue-on-error: true
+        run: |
+          ruff check .
 
       - name: Run tests with coverage
         run: |
           pytest -q --cov=ez_df_data_validator --cov-report=term-missing --cov-branch
 
-      - name: Run style checks (optional)
-        continue-on-error: true
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Build Reference Docs
         run: |
-          ruff check .
+          quartodoc build
+
+      - name: Render Docs (Dry Run)
+        uses: quarto-dev/quarto-actions/render@v2
