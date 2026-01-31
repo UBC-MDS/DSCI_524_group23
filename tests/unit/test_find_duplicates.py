@@ -111,3 +111,11 @@ def test_subset_valid():
     expected = pd.DataFrame({"A": [1], "B": [2]})
 
     pd.testing.assert_frame_equal(out, expected)
+
+
+def test_subset_elements_type_error():
+    """Test that a TypeError is raised when subset contains non-string elements."""
+    df = pd.DataFrame({"A": [1, 1]})
+
+    with pytest.raises(TypeError, match="All elements in subset must be strings"):
+        find_duplicates(df, subset=["A", 1])
