@@ -19,3 +19,5 @@ website:
     left:
       - text: "Reference"
         href: reference/index.qmd
+      - text: "Tools & Infrastructure"
+        href: tools_infrastructure.qmd
