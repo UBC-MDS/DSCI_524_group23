@@ -1,8 +1,10 @@
 # ez-df-data-validator
 
-|        |        |
-|--------|--------|
-| Package | [![TestPyPI](https://img.shields.io/pypi/v/ez-df-data-validator?label=TestPyPI&pypiBaseUrl=https%3A%2F%2Ftest.pypi.org&color=blue)](https://test.pypi.org/project/ez-df-data-validator/) |
+| Platform | Badge |
+| :--- | :--- |
+| **Package** | [![TestPyPI](https://img.shields.io/pypi/v/ez-df-data-validator?label=TestPyPI&pypiBaseUrl=https%3A%2F%2Ftest.pypi.org&color=blue)](https://test.pypi.org/project/ez-df-data-validator/) |
+| **CI/CD** | [![CI](https://github.com/UBC-MDS/ez-df-data-validator/actions/workflows/build.yml/badge.svg)](https://github.com/UBC-MDS/ez-df-data-validator/actions/workflows/build.yml) |
+| **Coverage** | [![codecov](https://codecov.io/gh/UBC-MDS/ez-df-data-validator/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/ez-df-data-validator) |
 
 
 ## Summary
