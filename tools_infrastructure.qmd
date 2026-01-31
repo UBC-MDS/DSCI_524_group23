@@ -1,0 +1,96 @@
+---
+title: "Tools, Infrastructure, and Development Practices"
+---
+
+## Overview
+
+In this project, we adopted modern software engineering practices to manage collaboration, ensure code quality, and automate testing, documentation, and release processes. The infrastructure we built mirrors real-world open-source Python projects and helped us understand how professional development workflows operate.
+
+---
+
+## Version Control and Collaboration
+
+We used Git and GitHub as our primary tools for version control and team collaboration. All development work was carried out using feature branches. We followed a Git Flow–inspired branching strategy:
+
+- Feature branches for individual tasks  
+- A `development` branch used as a staging area  
+- The `main` branch representing the stable release  
+
+All pull requests were first merged into the `development` branch. After integration and testing in `development`, changes were merged into `main`. This approach reduced the risk of breaking the stable branch and allowed multiple team members to work in parallel.
+
+GitHub Issues were used to track tasks, TA feedback, and peer review suggestions. Issues were linked to pull requests to maintain traceability between discussions and code changes.
+
+---
+
+## Continuous Integration (CI)
+
+We implemented automated CI using GitHub Actions. Our main CI workflow runs on pushes and pull requests and performs the following checks:
+
+- Installs the package with development, testing, and documentation dependencies  
+- Runs **ruff** for code style and linting  
+- Executes the full test suite using **pytest**  
+- Measures test coverage and uploads coverage reports to **Codecov**  
+
+This ensures that all contributions maintain functionality and follow coding standards before being merged.
+
+---
+
+## Documentation Infrastructure
+
+Documentation for our package is built using **Quarto** and **quartodoc**. We maintain a documentation website that includes tutorials, function references, and project information.
+
+Our documentation pipeline includes:
+
+- `quartodoc build` to generate function reference documentation  
+- `quarto render` to build the website  
+
+We use GitHub Actions to automatically build documentation and deploy it to the `gh-pages` branch. This keeps the documentation site synchronized with the latest stable version of the project without requiring manual updates.
+
+For pull requests, a preview build of the documentation is generated and deployed to Netlify, allowing contributors to review documentation changes before merging.
+
+---
+
+## Automated Release Pipeline
+
+We use an automated publishing workflow to simulate a professional Python package release process.
+
+Our release pipeline includes:
+
+- Building the package using **hatch**  
+- Running tests before release  
+- Publishing the package to **TestPyPI** automatically when changes are pushed to the `main` branch  
+
+This introduces semantic versioning practices and ensures that releases are reproducible and consistent.
+
+---
+
+## Code Quality and Testing Practices
+
+We enforced several practices to maintain high code quality:
+
+- Unit tests covering core functionality  
+- Coverage reporting to track test completeness  
+- Linting using ruff to enforce consistent style  
+- Continuous integration to detect issues early  
+
+These practices helped us prevent regressions and improve maintainability.
+
+---
+
+## Scaling the Project
+
+If this project were to scale into a larger or long-term software project, we would further enhance our infrastructure by:
+
+- Adding branch protection rules to require CI checks before merging  
+- Introducing pre-commit hooks for local linting and formatting  
+- Expanding test coverage and adding integration tests  
+- Using automated dependency update tools (e.g., Dependabot)  
+- Automating changelog generation and version management  
+
+These tools and practices would improve reliability, maintainability, and collaboration in a larger team setting.
+
+---
+
+## Reflection
+
+Through this project, we learned how modern software development integrates version control, CI/CD, documentation automation, and structured collaboration. These tools not only improve code quality but also support effective teamwork and reproducibility, which are essential in professional data science and software engineering environments.
