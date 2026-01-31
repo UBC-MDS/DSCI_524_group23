@@ -3,6 +3,7 @@
 |        |        |
 |--------|--------|
 | Package | [![TestPyPI](https://img.shields.io/pypi/v/ez-df-data-validator?label=TestPyPI&pypiBaseUrl=https%3A%2F%2Ftest.pypi.org&color=blue)](https://test.pypi.org/project/ez-df-data-validator/) |
+|Codecov|[![codecov](https://codecov.io/gh/UBC-MDS/ez-df-data-validator/graph/badge.svg?token=YOUR_TOKEN_HERE)](https://codecov.io/gh/UBC-MDS/ez-df-data-validator)|
 
 
 ## Summary
