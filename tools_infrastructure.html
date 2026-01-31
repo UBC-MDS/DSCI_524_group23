@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>contributing – ez_df_data_validator</title>
+<title>Tools, Infrastructure, and Development Practices – ez_df_data_validator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Reference</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tools_infrastructure.html"> 
+    <a class="nav-link active" href="./tools_infrastructure.html" aria-current="page"> 
 <span class="menu-text">Tools &amp; Infrastructure</span></a>
   </li>  
 </ul>
@@ -114,78 +114,125 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tools, Infrastructure, and Development Practices</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
-<p>Contributions of all kinds are welcome here, and they are greatly appreciated! Every little bit helps, and credit will always be given.</p>
-<section id="example-contributions" class="level2">
-<h2 class="anchored" data-anchor-id="example-contributions">Example Contributions</h2>
-<p>You can contribute in many ways, for example:</p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>In this project, we adopted modern software engineering practices to manage collaboration, ensure code quality, and automate testing, documentation, and release processes. The infrastructure we built mirrors real-world open-source Python projects and helped us understand how professional development workflows operate.</p>
+<hr>
+</section>
+<section id="version-control-and-collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-and-collaboration">Version Control and Collaboration</h2>
+<p>We used Git and GitHub as our primary tools for version control and team collaboration. All development work was carried out using feature branches. We followed a Git Flow–inspired branching strategy:</p>
 <ul>
-<li><a href="#report-bugs">Report bugs</a></li>
-<li><a href="#fix-bugs">Fix Bugs</a></li>
-<li><a href="#implement-features">Implement Features</a></li>
-<li><a href="#write-documentation">Write Documentation</a></li>
-<li><a href="#submit-feedback">Submit Feedback</a></li>
+<li>Feature branches for individual tasks<br>
+</li>
+<li>A <code>development</code> branch used as a staging area<br>
+</li>
+<li>The <code>main</code> branch representing the stable release</li>
 </ul>
-<section id="report-bugs" class="level3">
-<h3 class="anchored" data-anchor-id="report-bugs">Report Bugs</h3>
-<p>Report bugs at https://github.com/Nish-kumar/dsci_524_group23/issues.</p>
-<p><strong>If you are reporting a bug, please follow the template guidelines. The more detailed your report, the easier and thus faster we can help you.</strong></p>
+<p>All pull requests were first merged into the <code>development</code> branch. After integration and testing in <code>development</code>, changes were merged into <code>main</code>. This approach reduced the risk of breaking the stable branch and allowed multiple team members to work in parallel.</p>
+<p>GitHub Issues were used to track tasks, TA feedback, and peer review suggestions. Issues were linked to pull requests to maintain traceability between discussions and code changes.</p>
+<hr>
 </section>
-<section id="fix-bugs" class="level3">
-<h3 class="anchored" data-anchor-id="fix-bugs">Fix Bugs</h3>
-<p>Look through the GitHub issues for bugs. Anything labelled with <code>bug</code> and <code>help wanted</code> is open to whoever wants to implement it. When you decide to work on such an issue, please assign yourself to it and add a comment that you’ll be working on that, too. If you see another issue without the <code>help wanted</code> label, just post a comment, the maintainers are usually happy for any support that they can get.</p>
+<section id="continuous-integration-ci" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-integration-ci">Continuous Integration (CI)</h2>
+<p>We implemented automated CI using GitHub Actions. Our main CI workflow runs on pushes and pull requests and performs the following checks:</p>
+<ul>
+<li>Installs the package with development, testing, and documentation dependencies<br>
+</li>
+<li>Runs <strong>ruff</strong> for code style and linting<br>
+</li>
+<li>Executes the full test suite using <strong>pytest</strong><br>
+</li>
+<li>Measures test coverage and uploads coverage reports to <strong>Codecov</strong></li>
+</ul>
+<p>This ensures that all contributions maintain functionality and follow coding standards before being merged.</p>
+<hr>
 </section>
-<section id="implement-features" class="level3">
-<h3 class="anchored" data-anchor-id="implement-features">Implement Features</h3>
-<p>Look through the GitHub issues for features. Anything labelled with <code>enhancement</code> and <code>help wanted</code> is open to whoever wants to implement it. As for <a href="#fix-bugs">fixing bugs</a>, please assign yourself to the issue and add a comment that you’ll be working on that, too. If another enhancement catches your fancy, but it doesn’t have the <code>help wanted</code> label, just post a comment, the maintainers are usually happy for any support that they can get.</p>
+<section id="documentation-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-infrastructure">Documentation Infrastructure</h2>
+<p>Documentation for our package is built using <strong>Quarto</strong> and <strong>quartodoc</strong>. We maintain a documentation website that includes tutorials, function references, and project information.</p>
+<p>Our documentation pipeline includes:</p>
+<ul>
+<li><code>quartodoc build</code> to generate function reference documentation<br>
+</li>
+<li><code>quarto render</code> to build the website</li>
+</ul>
+<p>We use GitHub Actions to automatically build documentation and deploy it to the <code>gh-pages</code> branch. This keeps the documentation site synchronized with the latest stable version of the project without requiring manual updates.</p>
+<p>For pull requests, a preview build of the documentation is generated and deployed to Netlify, allowing contributors to review documentation changes before merging.</p>
+<hr>
 </section>
-<section id="write-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="write-documentation">Write Documentation</h3>
-<p>DSCI_524_group23 could always use more documentation, whether as part of the official documentation, in docstrings, or even on the web in blog posts, articles, and such. Just <a href="https://github.com/Nish-kumar/dsci_524_group23/issues">open an issue</a> to let us know what you will be working on so that we can provide you with guidance.</p>
+<section id="automated-release-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="automated-release-pipeline">Automated Release Pipeline</h2>
+<p>We use an automated publishing workflow to simulate a professional Python package release process.</p>
+<p>Our release pipeline includes:</p>
+<ul>
+<li>Building the package using <strong>hatch</strong><br>
+</li>
+<li>Running tests before release<br>
+</li>
+<li>Publishing the package to <strong>TestPyPI</strong> automatically when changes are pushed to the <code>main</code> branch</li>
+</ul>
+<p>This introduces semantic versioning practices and ensures that releases are reproducible and consistent.</p>
+<hr>
 </section>
-<section id="submit-feedback" class="level3">
-<h3 class="anchored" data-anchor-id="submit-feedback">Submit Feedback</h3>
-<p>The best way to send feedback is to file an issue at https://github.com/Nish-kumar/dsci_524_group23/issues. If your feedback fits the format of one of the issue templates, please use that. Remember that this is a volunteer-driven project and everybody has limited time.</p>
+<section id="code-quality-and-testing-practices" class="level2">
+<h2 class="anchored" data-anchor-id="code-quality-and-testing-practices">Code Quality and Testing Practices</h2>
+<p>We enforced several practices to maintain high code quality:</p>
+<ul>
+<li>Unit tests covering core functionality<br>
+</li>
+<li>Coverage reporting to track test completeness<br>
+</li>
+<li>Linting using ruff to enforce consistent style<br>
+</li>
+<li>Continuous integration to detect issues early</li>
+</ul>
+<p>These practices helped us prevent regressions and improve maintainability.</p>
+<hr>
 </section>
+<section id="scaling-the-project" class="level2">
+<h2 class="anchored" data-anchor-id="scaling-the-project">Scaling the Project</h2>
+<p>If this project were to scale into a larger or long-term software project, we would further enhance our infrastructure by:</p>
+<ul>
+<li>Adding branch protection rules to require CI checks before merging<br>
+</li>
+<li>Introducing pre-commit hooks for local linting and formatting<br>
+</li>
+<li>Expanding test coverage and adding integration tests<br>
+</li>
+<li>Using automated dependency update tools (e.g., Dependabot)<br>
+</li>
+<li>Automating changelog generation and version management</li>
+</ul>
+<p>These tools and practices would improve reliability, maintainability, and collaboration in a larger team setting.</p>
+<hr>
 </section>
-<section id="get-started" class="level2">
-<h2 class="anchored" data-anchor-id="get-started">Get Started!</h2>
-<p>Ready to contribute? Here’s how to set up DSCI_524_group23 for local development.</p>
-<ol type="1">
-<li><p>Fork the https://github.com/Nish-kumar/dsci_524_group23 repository on GitHub.</p></li>
-<li><p>Clone your fork locally (<em>if you want to work locally</em>)</p>
-<pre class="shell"><code>git clone git@github.com:your_name_here/dsci_524_group23.git</code></pre></li>
-<li><p><a href="https://hatch.pypa.io/latest/install/">Install hatch</a>.</p></li>
-<li><p>Create a branch for local development using the default branch (typically <code>main</code>) as a starting point. Use <code>fix</code> or <code>feat</code> as a prefix for your branch name.</p>
-<pre class="shell"><code>git checkout main
-git checkout -b fix-name-of-your-bugfix</code></pre>
-<p>Now you can make your changes locally.</p></li>
-<li><p>When you’re done making changes, apply the quality assurance tools and check that your changes pass our test suite. This is all included with tox</p>
-<pre class="shell"><code>hatch run test:run</code></pre></li>
-<li><p>Commit your changes and push your branch to GitHub. Please use <a href="https://www.conventionalcommits.org/">semantic commit messages</a>.</p>
-<pre class="shell"><code>git add .
-git commit -m "fix: summarize your changes"
-git push -u origin fix-name-of-your-bugfix</code></pre></li>
-<li><p>Open the link displayed in the message when pushing your new branch in order to submit a pull request.</p></li>
-</ol>
-<section id="pull-request-guidelines" class="level3">
-<h3 class="anchored" data-anchor-id="pull-request-guidelines">Pull Request Guidelines</h3>
-<p>Before you submit a pull request, check that it meets these guidelines:</p>
-<ol type="1">
-<li>The pull request should include tests.</li>
-<li>If the pull request adds functionality, the docs should be updated. Put your new functionality into a function with a docstring.</li>
-<li>Your pull request will automatically be checked by the full test suite. It needs to pass all of them before it can be considered for merging.</li>
-</ol>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>Through this project, we learned how modern software development integrates version control, CI/CD, documentation automation, and structured collaboration. These tools not only improve code quality but also support effective teamwork and reproducibility, which are essential in professional data science and software engineering environments.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
