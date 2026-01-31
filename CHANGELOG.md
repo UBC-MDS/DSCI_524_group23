@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [Unreleased]
-
 ### Added
 - Tools & infrastructure reflection page added to documentation website (`tools_infrastructure.qmd`) and linked in the navbar ([#86](https://github.com/UBC-MDS/ez-df-data-validator/issues/86)).
 - Example output added to the tutorial for clearer function usage.
