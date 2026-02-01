@@ -40,15 +40,6 @@ jobs:
       - name: Build package (Hatch)
         run: hatch build
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Build Reference Docs
-        run: quartodoc build
-
-      - name: Render Docs (Dry Run)
-        uses: quarto-dev/quarto-actions/render@v2
-
   publish-testpypi:
     needs: ci
     runs-on: ubuntu-latest

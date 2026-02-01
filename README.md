@@ -9,6 +9,8 @@
 
 ## Summary
 
+**2025-26 DSCI-524 Group 23 - Data Cleaner & Validator for Pandas DataFrames**
+
 ez-df-data-validator is a project that provides basic, but essential data cleaning functionality for ML workflows.
 This package provides a lightweight and user friendly toolkit for common data cleaning tasks in Python. It is designed to streamline data preprocessing by offering clear, reusable functions for detecting duplicates, standardizing column names, and handling missing values. The goal is to reduce repetitive code and make data preparation more efficient and reproducible.
 
